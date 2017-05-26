@@ -48,19 +48,18 @@ apiRouter.get('/radius', (req,res) => {
 // casualties
 // takes deaths and injuries as nums, lists all items >= values provided
 apiRouter.get('/casualties', (req, res) => {
-    const {deaths, end_date} = req.query;
-    strikesRef.orderByChild("kills").endAt(1).once("value")
+    const {killed} = req.query;
+    strikesRef.orderByChild("kills").endAt(killed).once("value")
         .then(snap => res.send(snap.val()))
 })
 
 // deaths by administration
-//
 apiRouter.get('/administration', (req,res) => {
   const {q, start_date, end_date} = req.query
 })
 
 apiRouter.get('/country', (req, res) => {
-    const {q, start_date, end_date, radius, kills } = req.query;
+    const {q} = req.query;
     // console.log(q, start_date, end_date);
     byCountryRef.child(q).once("value")
       .then(snap => snap.val())
