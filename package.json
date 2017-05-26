@@ -1,0 +1,25 @@
+{
+  "name": "opendrone",
+  "version": "1.0.0",
+  "description": "open api drone data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/maps": "^0.3.1",
+    "axios": "^0.16.1",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "firebase": "^4.0.0",
+    "firebase-admin": "^5.0.0"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "morgan": "^1.8.1",
+    "node-inspector": "^1.1.1",
+    "supervisor": "^0.12.0"
+  }
+}
