@@ -13,7 +13,7 @@ apiRouter.get('/', (req,res) => {
     });
 });
 
-// Within x radius of latlng string "12.12,23.23"
+// Within x radius of latlng string , ex. "12.12,23.23"
 apiRouter.get('/radius', (req,res) => {
     const {r, origin} = req.query;
     const latlngStr = origin.split(',', 2);
@@ -26,7 +26,15 @@ apiRouter.get('/radius', (req,res) => {
                     const destLatLng = {}
                         destLatLng.lat = parseFloat(currentItem.lat);
                         destLatLng.lng = parseFloat(currentItem.lon);
-                    if(geo.haversineKM(originLatLng, destLatLng) <= r ){
+                    if(geo.haversineKM(originLatLng, destLatLng) <= r ) {
+                        gmaps.reverseGeocode({
+                          latlng: destLatLng
+                        }, (err, response) => {
+                          if (!err) {
+                            console.log(response.json.results[1].formatted_address);
+                          }
+                        })
+
                         _hash.push(currentItem)
                     }
                     return _hash;
@@ -35,13 +43,13 @@ apiRouter.get('/radius', (req,res) => {
         .then(data => res.send(data))
         .catch(err => console.error(err));
 
-  // gmaps.reverseGeocode({
-  //   latlng: latlng
-  // }, (err, response) => {
-  //   if (!err) {
-  //     res.send(response.json.results);
-  //   }
-  // });
+    //   gmaps.reverseGeocode({
+    //     latlng: latlng
+    //   }, (err, response) => {
+    //     if (!err) {
+    //       res.send(response.json.results);
+    //     }
+    //   });
 });
 
 
@@ -49,7 +57,7 @@ apiRouter.get('/radius', (req,res) => {
 // takes deaths and injuries as nums, lists all items >= values provided
 apiRouter.get('/casualties', (req, res) => {
     const {killed} = req.query;
-    strikesRef.orderByChild("kills").endAt(killed).once("value")
+    strikesRef.orderByChild("kills").startAt(0).endAt(killed).once("value")
         .then(snap => res.send(snap.val()))
 })
 
@@ -64,7 +72,7 @@ apiRouter.get('/country', (req, res) => {
     byCountryRef.child(q).once("value")
       .then(snap => snap.val())
       .then(data => {
-        console.log(data);
+        // console.log(data);
         res.send(data)
       })
 });
