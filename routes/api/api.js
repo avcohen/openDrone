@@ -6,8 +6,21 @@ const byCountryRef = db.ref('by_country');
 const gmaps = require('../../gmaps/gmaps');
 const geo = require('../../middleware/geo');
 
+
+const getFilteredData = (queryParams) => {
+    const {r, origin, country} = queryParams;
+    return strikesRef.once("value", (snap) => {
+        // reduce the snap.val()
+        //
+        const reducedData = snap.val().filter();
+        return reducedData;
+
+    });
+}
+
 // FULL STRIKES DATA
 apiRouter.get('/', (req,res) => {
+    // getFilteredData(res.query).then((data) => res.send(data))l
     strikesRef.once("value", (snap) => {
         res.send(snap);
     });
@@ -76,6 +89,19 @@ apiRouter.get('/country', (req, res) => {
         res.send(data)
       })
 });
+
+/*
+apiRouter.get('/country/:country', (req, res) => {
+    const {country} = res.params;
+    const {r, radius} = res.query;
+
+    return getFilteredData({
+        country,
+        r,
+        radius,
+    }).then(d => res.send(d))
+});
+*/
 
 
 
