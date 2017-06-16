@@ -18,6 +18,13 @@ const getFilteredData = (queryParams) => {
     });
 }
 
+// CORS
+apiRouter.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 // FULL STRIKES DATA
 apiRouter.get('/', (req,res) => {
     // getFilteredData(res.query).then((data) => res.send(data))l
