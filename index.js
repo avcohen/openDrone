@@ -1,8 +1,11 @@
 const express = require('express');
 const app = express();
-const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const port = 8001;
+const fs = require('fs')
+const https = require('https');
+const morgan = require('morgan');
+const PORT = process.env.PORT || 8443;
+const HOST = process.env.HOST || '';
 
 // ROUTES
 const api = require('./routes/api/api');
@@ -26,7 +29,18 @@ app.get('/', (req,res) => {
   res.send('VICTORRRRY!!!!');
 });
 
+const options = {
+    key  : fs.readFileSync('ssl/key.pem'),
+    ca   : fs.readFileSync('ssl/csr.pem'),
+    cert : fs.readFileSync('ssl/cert.pem'),
+}
+
+
 
 Promise.resolve()
-  .then(app.listen(port))
+  .then(
+      https.createServer(options, app).listen(PORT, HOST, null, function () {
+              console.log('Server listening on port %d in %s mode', this.address().port, app.settings.env);
+      })
+  )
   .catch(err => console.error(err.stack));
