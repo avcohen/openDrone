@@ -1,26 +1,49 @@
-# Dronemappr Data v0.1 :camel: :rocket:
+# Dronemappr API v1 :camel: :rocket:
 
-A live version of the Dronemappr is available at [https://104.236.214.92:8443/api/](https://104.236.214.92:8443/api/)
+A live version of the Dronemappr is available at [https://104.236.214.92:8443/api/v1/](https://104.236.214.92:8443/api/v1/)
 
 _Please note the SSL certificate is self signed, you'll need to accept it prior to being able to access data._
 
 ## API Endpoints
 
+### Query Based Parameters
 
-### All Data
+The Dronemappr API has a variety of optional query string based parameters. These may be used in isolation or in conjunction with the RESTful routes defined below.
 
-Search and return all openDrone data.
+All query based parameters are optional and may be mixed and matched at will.
 
 ###### Path
 
-    /api
+    /api/v1/
 
 ###### Parameters
 
-+ *none* - no parameters
++ *country* - country name
++ *lat* - latitude
++ *lng* - longitude
++ *start_year* - starting year
++ *end_year* - starting year
+
+###### Examples
+    https://104.236.214.92:8443/api/v1/?country=syria
+    https://104.236.214.92:8443/api/v1/?country=afghanistan&start_year=2014&end_year=2015
+
+---
+
+### All Data
+
+Search and return all Dronemappr data.
+
+###### Path
+
+    /api/v1/
+
+###### Parameters
+
++ *none* - no parameters required
 
 ###### Example
-    http://base.url/api/
+    https://104.236.214.92:8443/api/v1/
 
 ---
 
@@ -30,48 +53,58 @@ Search and return all drone strikes within a specific country.
 
 ###### Path
 
-    /api/country
+    /api/v1/country/{country}
 
 ###### Parameters
 
-+ q - country name
++ *country* - country name
 
 ###### Example
-    http://base.url/api/country?q=yemen
+    https://104.236.214.92:8443/api/v1/country/yemen
 
 ---
 
 ### By Casualties
 
-Search and return for all drone strikes with *n* or more casualties.
+Search and return for all drone strikes with *n* casualties.
 
 ###### Path
 
-    /api/casualties
+    /api/v1/kills/{kills}
 
 ###### Parameters
 
-+ killed - number of casualties
++ *kills* - number of casualties
 
 ###### Example
-    http://base.url/api/casualties?killed=6
+    https://104.236.214.92:8443/api/v1/kills/5
 
 ---
 
 ### By Date(s)
 
-Search and return all drone strikes within a specific date range
+Searching by date can be done in three ways:
+
++ *Start Date* - Return all results _beginning_ at *start date* to present
++ *End Date* - Return all results _up until_ *end date*
++ *Date Range* - Return all results _between_ *start date* and *end date*
 
 ###### Path
 
-    /api/country
+    /api/v1/api/start_date/{start_date}/end_year/{end_year}
 
 ###### Parameters
 
-+ q - country name
++ *start_year* - starting year
++ *end_year* - ending year
 
-###### Example
-    http://base.url/api/country?q=yemen
+###### Examples
+    *Start Date Only*
+    https://104.236.214.92:8443/api/v1/start_year/2015
+    *End Date Only*
+    https://104.236.214.92:8443/api/v1/end_year/2017
+    *Date Range*
+    https://104.236.214.92:8443/api/v1/start_year/2015/end_year/2016
 
 ---
 
@@ -81,12 +114,13 @@ Search and return for all drone strikes within a radius of *n* or more kilometer
 
 ###### Path
 
-    /api/radius
+    /api/v1/radius/{radius}/lat/{lat}/lng/{lng}
 
 ###### Parameters
 
-+ r - radius (in kilometers)
-+ origin - point of origin as comma separated lattitude and longitude geographic coordinates.
++ *radius* - radius (in kilometers)
++ *lat* - latitudinal point of origin
++ *lng* - longitudinal point of origin
 
 ###### Example
-    http://base.url/api/radius?r=1200&origin=34.7221,38.7454
+    https://104.236.214.92:8443/api/v1/radius/50/lat/33.566561/lng/69.878354
