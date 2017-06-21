@@ -1,4 +1,8 @@
-# openDrone Data v0.1 :camel: :rocket:
+# Dronemappr Data v0.1 :camel: :rocket:
+
+A live version of the Dronemappr is available at [https://104.236.214.92:8443/api/](https://104.236.214.92:8443/api/)
+
+_Please note the SSL certificate is self signed, you'll need to accept it prior to being able to access data._
 
 ## API Endpoints
 
@@ -54,6 +58,23 @@ Search and return for all drone strikes with *n* or more casualties.
 
 ---
 
+### By Date(s)
+
+Search and return all drone strikes within a specific date range
+
+###### Path
+
+    /api/country
+
+###### Parameters
+
++ q - country name
+
+###### Example
+    http://base.url/api/country?q=yemen
+
+---
+
 ### Strikes Within Distance (KM)
 
 Search and return for all drone strikes within a radius of *n* or more kilometers of a geographic coordinate (latitude , longitude).
@@ -69,5 +90,3 @@ Search and return for all drone strikes within a radius of *n* or more kilometer
 
 ###### Example
     http://base.url/api/radius?r=1200&origin=34.7221,38.7454
-
-		

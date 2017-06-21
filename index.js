@@ -7,8 +7,10 @@ const morgan = require('morgan');
 const PORT = process.env.PORT || 8443;
 const HOST = process.env.HOST || '';
 
+
 // ROUTES
 const api = require('./routes/api/api');
+const apiVersion = 1
 
 // MIDDLEWARE
 app.use(bodyParser.json());
@@ -23,7 +25,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/api', api);
+app.use(`/api/v${apiVersion}`, api);
 
 app.get('/', (req,res) => {
   res.send('VICTORRRRY!!!!');
