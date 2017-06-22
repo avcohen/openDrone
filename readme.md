@@ -4,6 +4,16 @@ A live version of the Dronemappr is available at [https://104.236.214.92:8443/ap
 
 _Please note the SSL certificate is self signed, you'll need to accept it prior to being able to access data._
 
+### About
+
+Drone strikes, among other contentious issues of the world's current political climate, stand as one of many proverbial elephants in the room. However, seeing as drone strikes often go underreported and occur half a world away, our elephant is often nowhere to be seen.
+
+The data available through this API has been meticulously collected by individuals at [The Cluster Project](http://theclusterproject.com/), 'an ongoing web gallery and blog that uses multimedia artworks to explore weapons, war, civilian casualties and pop culture.'
+
+A React-based client to view, filter, and manipulate the data may be found [here](avcohen.github.io/openDroneClient/index.html).
+
+---
+
 ## API Endpoints
 
 ### Query Based Parameters
@@ -124,3 +134,12 @@ Search and return for all drone strikes within a radius of *n* or more kilometer
 
 ###### Example
     https://104.236.214.92:8443/api/v1/radius/50/lat/33.566561/lng/69.878354
+
+---
+
+
+## Thanks
+
+Special thanks to [Taq Karim](https://github.com/mottaquikarim) and Kirk Zamieroski for their continued support, input and all around savagely good vibes.
+
+I'd also like to acknowledge Josh Begley's work [Dronestre.am](Dronestre.am).

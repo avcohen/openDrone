@@ -124,4 +124,31 @@ apiRouter.get('/radius/:radius/lat/:lat/lng/:lng', (req,res) => {
         .catch(err => console.error(err));
 });
 
+apiRouter.get('/start_year/:start_year', (req, res) => {
+    strikesRef.once("value", (snap) => {
+        const data = snap.val();
+        const { start_year } = req.params;
+        const params = compileOptionalParams(Object.assign({}, req.query, { start_year }));
+        res.send(dataFilter(params, data))
+    });
+});
+
+apiRouter.get('/end_year/:end_year', (req, res) => {
+    strikesRef.once("value", (snap) => {
+        const data = snap.val();
+        const { end_year } = req.params;
+        const params = compileOptionalParams(Object.assign({}, req.query, { end_year }));
+        res.send(dataFilter(params, data))
+    });
+});
+
+apiRouter.get('/start_year/:start_year/end_year/:end_year', (req, res) => {
+    strikesRef.once("value", (snap) => {
+        const data = snap.val();
+        const { start_year , end_year } = req.params;
+        const params = compileOptionalParams(Object.assign({}, req.query, { start_year, end_year }));
+        res.send(dataFilter(params, data))
+    });
+});
+
 module.exports = apiRouter;
