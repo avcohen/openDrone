@@ -142,4 +142,4 @@ Search and return for all drone strikes within a radius of *n* or more kilometer
 
 Special thanks to [Taq Karim](https://github.com/mottaquikarim) and Kirk Zamieroski for their continued support, input and all around savagely good vibes.
 
-I'd also like to acknowledge Josh Begley's work [Dronestre.am](Dronestre.am).
+I'd also like to acknowledge preceding works for their subsequent influence on this project including Josh Begley's work [Dronestre.am](Dronestre.am), and [Out of Sight out of Mind](http://drones.pitchinteractive.com/).
