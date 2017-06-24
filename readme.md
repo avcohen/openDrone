@@ -120,7 +120,7 @@ Searching by date can be done in three ways:
 
 ### Strikes Within Distance (KM)
 
-Search and return for all drone strikes within a radius of *n* or more kilometers of a geographic coordinate (latitude , longitude).
+Search and return all drone strikes within a radius of *n* or more kilometers of a geographic coordinate (latitude , longitude).
 
 ###### Path
 
