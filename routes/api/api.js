@@ -1,8 +1,7 @@
 const express = require('express');
 const apiRouter = express.Router();
 const db = require("../../firebase/firebase");
-const strikesRef = db.ref("strikes");
-const byCountryRef = db.ref('by_country');
+const strikesRef = db.ref();
 const gmaps = require('../../gmaps/gmaps');
 const geo = require('../../middleware/geo');
 
@@ -112,7 +111,7 @@ apiRouter.get('/radius/:radius/lat/:lat/lng/:lng', (req,res) => {
         .then(snap => {
             return snap.val()
                 .reduce((_hash , currentItem) => {
-                    const targetLatLng = { lat : parseFloat(currentItem.lat) , lng : parseFloat(currentItem.lon) }
+                    const targetLatLng = { lat : parseFloat(currentItem.lat) , lng : parseFloat(currentItem.lng) }
 
                     if(geo.haversineKM(originLatLng , targetLatLng) <= radius ) {
                         _hash.push(currentItem)
