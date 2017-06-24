@@ -10,7 +10,7 @@ Drone strikes, among other contentious issues of the world's current political c
 
 The data available through this API has been meticulously collected by individuals at [The Cluster Project](http://theclusterproject.com/), 'an ongoing web gallery and blog that uses multimedia artworks to explore weapons, war, civilian casualties and pop culture.'
 
-A React-based client to view, filter, and manipulate the data may be found [here](avcohen.github.io/openDroneClient/index.html).
+A React-based client to view, filter, and manipulate the data may be found [here](http://avcohen.github.io/openDroneClient/index.html).
 
 ---
 
@@ -20,7 +20,7 @@ A React-based client to view, filter, and manipulate the data may be found [here
 
 The Dronemappr API has a variety of optional query string based parameters. These may be used in isolation or in conjunction with the RESTful routes defined below.
 
-All query based parameters are optional and may be mixed and matched at will.
+All query based parameters are optional and may be mixed and matched at will onto the base root path of `/api/v1` or any of the additional routes defined below.
 
 ###### Path
 
