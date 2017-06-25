@@ -1,6 +1,6 @@
 # Dronemappr API v1 :camel: :rocket:
 
-A live version of the Dronemappr is available at [https://104.236.214.92:8443/api/v1/](https://104.236.214.92:8443/api/v1/)
+A live version of the Dronemappr API is available at [https://104.236.214.92:8443/api/v1/](https://104.236.214.92:8443/api/v1/)
 
 _Please note the SSL certificate is self signed, you'll need to accept it prior to being able to access data._
 
@@ -101,7 +101,7 @@ Searching by date can be done in three ways:
 
 ###### Path
 
-    /api/v1/api/start_date/{start_date}/end_year/{end_year}
+    /api/v1/start_year/{start_year}/end_year/{end_year}
 
 ###### Parameters
 
