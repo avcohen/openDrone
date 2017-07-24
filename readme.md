@@ -1,4 +1,4 @@
-# Dronemappr API v1 :camel: :rocket:
+# Dronemappr API v1
 
 A live version of the Dronemappr API is available at [http://api.dronemappr.com/api/v1/](http://api.dronemappr.com/api/v1/)
 
