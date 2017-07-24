@@ -33,8 +33,8 @@ All query based parameters are optional and may be mixed and matched at will ont
 + *end_year* - starting year
 
 ###### Examples
-    https://104.236.214.92:8443/api/v1/?country=syria
-    https://104.236.214.92:8443/api/v1/?country=afghanistan&start_year=2014&end_year=2015
+    http://api.dronemappr.com/api/v1/?country=syria
+    http://api.dronemappr.com/api/v1/?country=afghanistan&start_year=2014&end_year=2015
 
 ---
 
@@ -51,7 +51,7 @@ Search and return all Dronemappr data.
 + *none* - no parameters required
 
 ###### Example
-    https://104.236.214.92:8443/api/v1/
+    http://api.dronemappr.com/api/v1/
 
 ---
 
@@ -68,7 +68,7 @@ Search and return all drone strikes within a specific country.
 + *country* - country name
 
 ###### Example
-    https://104.236.214.92:8443/api/v1/country/yemen
+    http://api.dronemappr.com/api/v1/country/yemen
 
 ---
 
@@ -85,7 +85,7 @@ Search and return for all drone strikes with *n* casualties.
 + *kills* - number of casualties
 
 ###### Example
-    https://104.236.214.92:8443/api/v1/kills/5
+    http://api.dronemappr.com/api/v1/kills/5
 
 ---
 
@@ -108,11 +108,11 @@ Searching by date can be done in three ways:
 
 ###### Examples
     *Start Date Only*
-    https://104.236.214.92:8443/api/v1/start_year/2015
+    http://api.dronemappr.com/api/v1/start_year/2015
     *End Date Only*
-    https://104.236.214.92:8443/api/v1/end_year/2017
+    http://api.dronemappr.com/api/v1/end_year/2017
     *Date Range*
-    https://104.236.214.92:8443/api/v1/start_year/2015/end_year/2016
+    http://api.dronemappr.com/api/v1/start_year/2015/end_year/2016
 
 ---
 
@@ -131,7 +131,7 @@ Search and return all drone strikes within a radius of *n* or more kilometers of
 + *lng* - longitudinal point of origin
 
 ###### Example
-    https://104.236.214.92:8443/api/v1/radius/50/lat/33.566561/lng/69.878354
+    http://api.dronemappr.com/api/v1/radius/50/lat/33.566561/lng/69.878354
 
 ---
 
