@@ -33,7 +33,7 @@ app.get('/', (req,res) => {
 
 Promise.resolve()
   .then(
-      https.createServer(app).listen(PORT, HOST, null, function () {
+      app.listen(PORT, HOST, null, function () {
               console.log('Server listening on port %d in %s mode', this.address().port, app.settings.env);
       })
   )
