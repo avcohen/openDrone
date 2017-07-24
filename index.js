@@ -31,17 +31,9 @@ app.get('/', (req,res) => {
   res.send('VICTORRRRY!!!!');
 });
 
-const options = {
-    key  : fs.readFileSync('ssl/key.pem'),
-    ca   : fs.readFileSync('ssl/csr.pem'),
-    cert : fs.readFileSync('ssl/cert.pem'),
-}
-
-
-
 Promise.resolve()
   .then(
-      https.createServer(options, app).listen(PORT, HOST, null, function () {
+      https.createServer(app).listen(PORT, HOST, null, function () {
               console.log('Server listening on port %d in %s mode', this.address().port, app.settings.env);
       })
   )

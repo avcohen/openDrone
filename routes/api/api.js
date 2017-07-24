@@ -4,7 +4,7 @@ const db = require("../../firebase/firebase");
 const strikesRef = db.ref();
 const gmaps = require('../../gmaps/gmaps');
 const geo = require('../../middleware/geo');
-
+const postKey = require('../../firebase/postKey')
 
 // ALL OPTIONAL PARAMS BASED FILTER
 //
@@ -149,5 +149,39 @@ apiRouter.get('/start_year/:start_year/end_year/:end_year', (req, res) => {
         res.send(dataFilter(params, data))
     });
 });
+
+apiRouter.post('/createEntry', (req, res) =>{
+    if ( req.body.key ===  postKey.key) {
+        const newStrikeData = {
+            country : req.body.country,
+            date : req.body.date,
+            description : req.body.description,
+            kills : req.body.kills,
+            l1 : req.body.l1,
+            l2 : req.body.l2,
+            l3 : req.body.l3,
+            l4 : req.body.l4,
+            lat : req.body.lat,
+            lng : req.body.lng
+        };
+
+        const newID = new Promise((resolve, reject) =>{
+            strikesRef.once("value", (snap) => {
+                resolve(snap.numChildren() + 1)
+            })
+        })
+
+        newID.then((id) => {
+            strikesRef.child(id).set(newStrikeData);
+        })
+        .then(() => res.send('Thanks ^___^'))
+        .catch(e => console.error(e));
+    } else {
+        res.send('Unauthorized POST request');
+    }
+
+
+})
+
 
 module.exports = apiRouter;
