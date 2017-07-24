@@ -2,11 +2,9 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const fs = require('fs')
-const https = require('https');
-const morgan = require('morgan');
+// const https = require('https');
 const PORT = process.env.PORT || 8443;
 const HOST = process.env.HOST || '';
-
 
 // ROUTES
 const api = require('./routes/api/api');
