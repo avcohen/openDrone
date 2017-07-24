@@ -1,8 +1,6 @@
 # Dronemappr API v1 :camel: :rocket:
 
-A live version of the Dronemappr API is available at [https://104.236.214.92:8443/api/v1/](https://104.236.214.92:8443/api/v1/)
-
-_Please note the SSL certificate is self signed, you'll need to accept it prior to being able to access data._
+A live version of the Dronemappr API is available at [http://api.dronemappr.com/api/v1/](http://api.dronemappr.com/api/v1/)
 
 ### About
 
@@ -10,7 +8,7 @@ Drone strikes, among other contentious issues of the world's current political c
 
 The data available through this API has been meticulously collected by individuals at [The Cluster Project](http://theclusterproject.com/), 'an ongoing web gallery and blog that uses multimedia artworks to explore weapons, war, civilian casualties and pop culture.'
 
-A React-based client to view, filter, and manipulate the data may be found [here](http://avcohen.github.io/openDroneClient/index.html).
+A React-based client to view, filter, and manipulate the data may be found [here](http://www.dronemappr.com/).
 
 ---
 
